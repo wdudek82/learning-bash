@@ -7,6 +7,7 @@ getDate(){
 
 getDate
 
+# global vs local variable
 name="Wojtek"
 
 demLocal(){
@@ -31,3 +32,11 @@ num2=6
 
 sum=$(getSum num1 num2)
 echo "Sum: $sum"
+echo $(getSum 5 10)
+
+
+foo(){
+	echo "bar"
+}
+
+foo
