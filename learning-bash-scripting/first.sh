@@ -311,3 +311,11 @@ function square {
 }
 
 square 3
+
+
+factorial() {
+    echo "Number of args: $#"
+    echo "Array of args: $@"
+}
+
+factorial 1 2 3 4 5
