@@ -199,22 +199,38 @@ num2=$((num1**3))
 ## using ftp
 #ftp -n < ftp.txt
 
-cat << ArbitraryDelimiter
-This is
-exemplary
-multiline text
-ArbitraryDelimiter
-
-ftp -n <<- DoneWithTheUpdate
-    open mirrors.xmission.com
-    user anonymous nothinghere
-    ascii
-    cd gutenberg
-    get GUTINDEX.01
-    bye
-DoneWithTheUpdate
+# cat << ArbitraryDelimiter
+# This is
+# exemplary
+# multiline text
+# ArbitraryDelimiter
+#
+#ftp -n <<- DoneWithTheUpdate
+#    open mirrors.xmission.com
+#    user anonymous nothinghere
+#    ascii
+#    cd gutenberg
+#    get GUTINDEX.01
+#    bye
+#DoneWithTheUpdate
 
 ### Loops
 #for num in {01..10}; do
 #    echo "Number: $num"
 #done
+
+# If statement
+a=2
+if [[ $a -gt 4 ]]; then
+    echo $a is greater than 4!
+else
+    echo $a is not greater than 4!
+fi
+
+# If with Regex
+str="This is my #1 string"
+if [[ $str =~ ^.*[[:space:]]#[0-9].*$ ]]; then
+    echo "There are numbers!"
+else
+    echo "There are no numbers!"
+fi
