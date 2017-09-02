@@ -214,23 +214,100 @@ num2=$((num1**3))
 #    bye
 #DoneWithTheUpdate
 
+
+### If statement
+#a=2
+#if [[ $a -gt 4 ]]; then
+#    echo $a is greater than 4!
+#else
+#    echo $a is not greater than 4!
+#fi
+#
+## If with Regex
+#str="This is my #1 string"
+#if [[ $str =~ ^.*[[:space:]]#[0-9].*$ ]]; then
+#    echo "There are numbers!"
+#else
+#    echo "There are no numbers!"
+#fi
+
+
 ### Loops
-#for num in {01..10}; do
+### While
+#i=0
+#while [[ $i -le 10 ]]; do
+#    echo "Num: $i"
+#    ((i++))
+#done
+#
+#
+### Until
+#i=0
+#until [[ $i -ge 10 ]]; do
+#    echo "Num: $i"
+#    ((i++))
+#done
+#
+### For
+#for (( i=0; i<=10; i++ )); do
+#    echo "Number: $i"
+#done
+
+## For Each
+#for i in 1 2 3; do
+#    echo "Num: $i"
+#done
+
+# start..stop..step
+#for num in {01..10..2}; do
 #    echo "Number: $num"
 #done
 
-# If statement
-a=2
-if [[ $a -gt 4 ]]; then
-    echo $a is greater than 4!
-else
-    echo $a is not greater than 4!
-fi
+## Looping through arrays
+#a=("banana" "apple" "cherry")
+#for i in ${a[@]}; do
+#    echo $i
+#done
 
-# If with Regex
-str="This is my #1 string"
-if [[ $str =~ ^.*[[:space:]]#[0-9].*$ ]]; then
-    echo "There are numbers!"
-else
-    echo "There are no numbers!"
-fi
+## Looping through associative array
+#declare -A aa
+#aa=(
+#    [name]="John"
+#    [last name]="Doe"
+#    [age]=35
+#)
+#
+## Quote helps in case of white space in keys
+#for k in "${!aa[@]}"; do
+#    echo "$k: ${aa[$k]}"
+#done
+
+## Commands substitution in for loops
+#for i in $(echo ../*); do
+#    echo "line: $i"
+#done
+
+
+#### Case
+#a="bird"
+#
+#case $a in
+#    cat) echo "Feline";;
+#    dog|puppy) echo "Canine";;
+#    *) echo "No match!";;
+#esac
+
+
+### Functions
+function greet {
+    echo "Hi there!"
+}
+
+greet
+
+
+function square {
+    echo $(( $1 * $1 ))
+}
+
+square 3
