@@ -123,11 +123,11 @@ num2=$((num1**3))
 #printf "Name:\t%s\nID:\t%04d" "Scott" "12"
 
 
-### date
-today=$(date +"%Y-%m-%d")
-time=$(date +"%H:%M:%S")
-printf -v formatted "Current User:\t%s\nDate:\t\t\t%s @ %s\n" $USER $today $time
-echo "$formatted"
+#### date
+#today=$(date +"%Y-%m-%d")
+#time=$(date +"%H:%M:%S")
+#printf -v formatted "Current User:\t%s\nDate:\t\t\t%s @ %s\n" $USER $today $time
+#echo "$formatted"
 
 
 #### Arrays
@@ -159,33 +159,60 @@ echo "$formatted"
 #done
 
 
-### Associative Array
-declare -A myarray
-myarray[color]=blue
-myarray["office building"]="HQ West"
+#### Associative Array
+#declare -A myarray
+#myarray[color]=blue
+#myarray["office building"]="HQ West"
+#
+#echo ${myarray["office building"]} is ${myarray[color]}
+#
+#declare -A aa
+#aa=(
+#    [name]="John"
+#    [lastname]="Doe"
+#    [age]=35
+#)
+#
+#echo ${aa[@]}
+#
+#for item in ${aa[@]}; do
+#    echo $item
+#done
 
-echo ${myarray["office building"]} is ${myarray[color]}
 
-declare -A aa
-aa=(
-    [name]="John"
-    [lastname]="Doe"
-    [age]=35
-)
+#### Files
+#echo "Some text" > file.txt
+#
+## to delete content of a file
+##echo > file.txt
+#
+#echo "Some more text" >> file.txt
+#
+## reading from a file
+#i=1
+#while read f; do
+#    echo "Line $i: $f"
+#    ((i++))
+#done < file.txt
+#
+#
+## using ftp
+#ftp -n < ftp.txt
 
-echo ${aa[@]}
+cat << ArbitraryDelimiter
+This is
+exemplary
+multiline text
+ArbitraryDelimiter
 
-for item in ${aa[@]}; do
-    echo $item
-done
-
-
-### Files
-echo "Some text" > file.txt
-
-# to delete content of a file
-echo > file.txt
-
+ftp -n <<- DoneWithTheUpdate
+    open mirrors.xmission.com
+    user anonymous nothinghere
+    ascii
+    cd gutenberg
+    get GUTINDEX.01
+    bye
+DoneWithTheUpdate
 
 ### Loops
 #for num in {01..10}; do
